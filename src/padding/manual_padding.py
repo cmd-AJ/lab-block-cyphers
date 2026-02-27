@@ -36,7 +36,6 @@ def pkcs7_pad(data: bytes, block_size: int = 8):
         
     
 
-print(pkcs7_pad(b"HOLA", 8).hex())
 
 
 
@@ -59,7 +58,5 @@ def pkcs7_unpad(data: bytes) -> bytes:
 
 
 
-padded = pkcs7_pad(b"HOLA", 8)
-print(pkcs7_unpad(padded)) ##En efecto de de regresar hola
 
 
