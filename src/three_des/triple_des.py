@@ -17,12 +17,12 @@ def encrypt_3des_cbc(plaintext: bytes, key: bytes, iv: bytes) -> bytes:
     """
 
     key = DES3.adjust_key_parity(key)
-    # Para verificar que la llave tiene la misma longitud se debe de verificar los bits de paridad. 
+    # Para verificar que la llave tiene la misma longitud se debe de verificar los bits de paridad.  
 
     cipher = DES3.new(key, DES3.MODE_CBC, iv)
 
 
-    padded_plaintext = pad(plaintext, DES3.block_size)  # block_size = 8
+    padded_plaintext = pad(plaintext, DES3.block_size)  
 
     ciphertext = cipher.encrypt(padded_plaintext)
 
@@ -55,7 +55,7 @@ def decrypt_3des_cbc(ciphertext: bytes, key: bytes, iv: bytes) -> bytes:
     if len(iv) != 8:
         raise ValueError("IV must be 8 bytes long for 3DES")
 
-    # Para verificar que la llave tiene la misma longitud se debe de verificar los bits de paridad como se realiza con el de encruptar 
+    # Para verificar que la llave tiene la misma longitud se debe de verificar los bits de paridad como se realiza con el de encriptar 
     key = DES3.adjust_key_parity(key)
 
     # 2. Creación del cypher
