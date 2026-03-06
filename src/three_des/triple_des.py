@@ -21,7 +21,7 @@ def encrypt_3des_cbc(plaintext: bytes, key: bytes, iv: bytes) -> bytes:
 
     cipher = DES3.new(key, DES3.MODE_CBC, iv)
 
-
+    # No se utiliza el padding manual que se creo si no que se utilizara el padding de la libreria de Crypto.Util
     padded_plaintext = pad(plaintext, DES3.block_size)  
 
     ciphertext = cipher.encrypt(padded_plaintext)
@@ -64,7 +64,7 @@ def decrypt_3des_cbc(ciphertext: bytes, key: bytes, iv: bytes) -> bytes:
     # 3. Con el mensaje que realizamos anteriormente utilizamos la desencripción por parte de la libreria  Crypto.Cypher
     padded_plaintext = cipher.decrypt(ciphertext)
 
-    # 4. En caso de que hay padding quitamos esto para poder observar el mensaje
+    # 4. En caso de que hay padding quitamos esto para poder observar el mensaje lastimosamente no utilizamos los padding creados por mi :(
     plaintext = unpad(padded_plaintext, DES3.block_size)
 
 
